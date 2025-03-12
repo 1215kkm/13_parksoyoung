@@ -53,11 +53,49 @@ $('.menu').click(function(){
     history.back();
 })
 
+
+
+// web1에 관련된 부분 상세페이지 관련부분
+
+// $('.list li').off('click').on('click', function () {
+//     // 클릭한 항목 활성화
+//     $(this).addClass('on').siblings().removeClass('on');
+    
+//     // 클릭한 이미지 정보 가져오기
+//     let imgSrc = $(this).find('img').attr('src'); // 이미지 경로
+//     let imgColor = $(this).find('img').attr('data-color'); // 배경색
+
+//     // 이미지 변경
+//     $('.view .web1 img').attr('src', imgSrc);
+
+//     // 배경색 변경
+//     $('.list').css({ background: imgColor });
+
+//     // 상단으로 스크롤 (필요 시)
+//     $('.view').scrollTop(0);
+// });
+
+
+
+
+
+
+
+// $('.screen').mouseover(function(){
+//     let imgH = $(this).find('img').height();
+//     let scrH = $(this).height();
+
+//     $(this).find('img').css({top:- imgH + scrH})
+// }).mouseout(function(){
+//     $(this).find('img').css({top:0})
+// });
 $('.screen').mouseover(function(){
-    let imgH = $(this).find('img').height();
+    let $img = $(this).find('img');
+    let imgH = $img.height();
     let scrH = $(this).height();
 
-    $(this).find('img').css({top:- imgH + scrH})
+    $img.stop().animate({top: -imgH + scrH}, 700); // 500은 애니메이션의 속도를 나타내는데, 조절 가능합니다.
 }).mouseout(function(){
-    $(this).find('img').css({top:0})
+    let $img = $(this).find('img');
+    $img.stop().animate({top: 0}, 600); // 마우스 아웃 시 빠르게 이미지를 원래 위치로 이동하도록 설정하였습니다.
 });
